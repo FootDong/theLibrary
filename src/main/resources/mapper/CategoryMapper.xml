@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moon.library.dao.CategoryMapper">
+<!--    /显示所有分类-->
+    <select id="listCategories" parameterType="Category" resultType="Category">
+        SELECT * FROM class_info
+  </select>
+
+<!--    添加书本分类-->
+    <insert id="addBookCategory" parameterType="Category">
+        INSERT class_info(cname) VALUES(#{cname})
+    </insert>
+
+<!--    更新书本分类-->
+<update id="updateBookCategory" parameterType="Category">
+    UPDATE class_info SET cname=#{cname} WHERE cid=#{cid}
+</update>
+<!--    删除书本分类-->
+    <delete id="delBookCategory" parameterType="int">
+        DELETE FROM class_info WHERE cid=#{cid}
+    </delete>
+</mapper>
